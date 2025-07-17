@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2025 at 02:10 PM
+-- Generation Time: Jul 17, 2025 at 08:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `saw_kinerja_karyawan_biznet`
+-- Database: `saw_pelanggan_terbaik_diy`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alternatif` (
   `id` int(11) NOT NULL,
-  `id_employee` int(11) NOT NULL,
+  `id_pelanggan` int(11) NOT NULL,
   `id_sub_kreteria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -37,19 +37,12 @@ CREATE TABLE `alternatif` (
 -- Dumping data for table `alternatif`
 --
 
-INSERT INTO `alternatif` (`id`, `id_employee`, `id_sub_kreteria`) VALUES
-(9, 6, 2),
-(10, 6, 5),
-(11, 6, 10),
-(12, 6, 12),
-(13, 1, 1),
-(14, 1, 4),
-(15, 1, 7),
-(16, 1, 11),
-(17, 4, 2),
-(18, 4, 4),
-(19, 4, 7),
-(20, 4, 11);
+INSERT INTO `alternatif` (`id`, `id_pelanggan`, `id_sub_kreteria`) VALUES
+(1, 1, 1),
+(2, 1, 6),
+(3, 1, 11),
+(4, 1, 16),
+(5, 1, 21);
 
 -- --------------------------------------------------------
 
@@ -69,32 +62,36 @@ CREATE TABLE `criteria` (
 --
 
 INSERT INTO `criteria` (`id`, `nama`, `type`, `bobot`) VALUES
-(1, 'Dive for Result', 'benefit', 30.00),
-(2, 'Costumer Focus Orientation', 'benefit', 25.00),
-(3, 'Team Work', 'benefit', 25.00),
-(4, 'Initiative-innovation', 'benefit', 25.00);
+(1, 'Jumlah Transaksi', 'benefit', 25.00),
+(2, 'Total Pembelian', 'benefit', 25.00),
+(3, 'Frekuensi Kunjungan', 'benefit', 20.00),
+(4, 'Loyalitas', 'benefit', 20.00),
+(5, 'Jumlah Komplain', 'cost', 10.00);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
+-- Table structure for table `pelanggan`
 --
 
-CREATE TABLE `employees` (
+CREATE TABLE `pelanggan` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `position` varchar(100) NOT NULL
+  `nama` varchar(100) NOT NULL,
+  `telepon` varchar(20) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `employees`
+-- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `employees` (`id`, `name`, `position`) VALUES
-(1, 'Muhammad Januar', 'Developer'),
-(4, 'Helmy Akbar', 'Staff'),
-(5, 'Tanneke Iqbal', 'Head Office'),
-(6, 'Galang Wijaya', 'HRD');
+INSERT INTO `pelanggan` (`id`, `nama`, `telepon`, `alamat`, `email`) VALUES
+(1, 'Andi Wijaya', '081234567891', 'Jl. Merdeka No. 1', 'andi@example.com'),
+(2, 'Siti Lestari', '082234567892', 'Jl. Sudirman No. 2', 'siti@example.com'),
+(3, 'Budi Santoso', '083234567893', 'Jl. Diponegoro No. 3', 'budi@example.com'),
+(4, 'Dewi Ayu', '084234567894', 'Jl. Gatot Subroto No. 4', 'dewi@example.com'),
+(5, 'Rizky Ramadhan', '085234567895', 'Jl. Soekarno-Hatta No. 5', 'rizky@example.com');
 
 -- --------------------------------------------------------
 
@@ -114,18 +111,31 @@ CREATE TABLE `sub_criteria` (
 --
 
 INSERT INTO `sub_criteria` (`id`, `id_kreteria`, `jumlah_bobot`, `deskripsi`) VALUES
-(1, 1, 3.00, 'Selalu mencapai target lebih dari ekspektasi'),
-(2, 1, 2.00, 'Hampir mencapai target'),
-(3, 1, 1.00, 'Tidak mencapai target sama sekali'),
-(4, 2, 3.00, 'Sangat responsif dan ramah terhadap pelanggan'),
-(5, 2, 2.00, 'Cukup responsif namun kurang memahami kebutuhan'),
-(6, 2, 1.00, 'Tidak peduli terhadap pelanggan'),
-(7, 3, 3.00, 'Sangat kooperatif dan membantu semua anggota'),
-(8, 3, 2.00, 'Bekerja sama bila diperlukan'),
-(10, 3, 1.00, 'Tidak bisa bekerja dalam tim'),
-(11, 4, 3.00, 'Sering memberi ide kreatif yang bermanfaat'),
-(12, 4, 2.00, 'Jarang memberi ide namun cukup proaktif'),
-(14, 4, 1.00, 'Tidak pernah memberi ide dan pasif');
+(1, 1, 5.00, '≥ 30 transaksi'),
+(2, 1, 4.00, '20–29 transaksi'),
+(3, 1, 3.00, '10–19 transaksi'),
+(4, 1, 2.00, '5–9 transaksi'),
+(5, 1, 1.00, '< 5 transaksi'),
+(6, 2, 5.00, '≥ Rp 5.000.000'),
+(7, 2, 4.00, 'Rp 3.000.000 – 4.999.999'),
+(8, 2, 3.00, 'Rp 1.500.000 – 2.999.999'),
+(9, 2, 2.00, 'Rp 500.000 – 1.499.999'),
+(10, 2, 1.00, '< Rp 500.000'),
+(11, 3, 5.00, '≥ 8 kali'),
+(12, 3, 4.00, '6–7 kali'),
+(13, 3, 3.00, '4–5 kali'),
+(14, 3, 2.00, '2–3 kali'),
+(15, 3, 1.00, '≤ 1 kali'),
+(16, 4, 5.00, '≥ 3 tahun'),
+(17, 4, 4.00, '2–3 tahun'),
+(18, 4, 3.00, '1–2 tahun'),
+(19, 4, 2.00, '6–12 bulan'),
+(20, 4, 1.00, '< 6 bulan'),
+(21, 5, 5.00, '0 kali'),
+(22, 5, 4.00, '1 kali'),
+(23, 5, 3.00, '2–3 kali'),
+(24, 5, 2.00, '4–5 kali'),
+(25, 5, 1.00, '> 5 kali');
 
 -- --------------------------------------------------------
 
@@ -147,7 +157,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `alamat`, `username`, `password`, `email`) VALUES
-(1, 'Administrator', 'Jl. Proklamasi No. 1, Jakarta', 'admin', 'admin', 'admin');
+(1, 'Administrator', 'Jl. Pusat MR.DIY No.1', 'admin', 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -158,7 +168,7 @@ INSERT INTO `users` (`id`, `name`, `alamat`, `username`, `password`, `email`) VA
 --
 ALTER TABLE `alternatif`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_employee` (`id_employee`),
+  ADD KEY `id_pelanggan` (`id_pelanggan`),
   ADD KEY `id_sub_kreteria` (`id_sub_kreteria`);
 
 --
@@ -168,9 +178,9 @@ ALTER TABLE `criteria`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `employees`
+-- Indexes for table `pelanggan`
 --
-ALTER TABLE `employees`
+ALTER TABLE `pelanggan`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -196,25 +206,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `criteria`
 --
 ALTER TABLE `criteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `employees`
+-- AUTO_INCREMENT for table `pelanggan`
 --
-ALTER TABLE `employees`
+ALTER TABLE `pelanggan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sub_criteria`
 --
 ALTER TABLE `sub_criteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -230,7 +240,7 @@ ALTER TABLE `users`
 -- Constraints for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  ADD CONSTRAINT `alternatif_ibfk_1` FOREIGN KEY (`id_employee`) REFERENCES `employees` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `alternatif_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `alternatif_ibfk_2` FOREIGN KEY (`id_sub_kreteria`) REFERENCES `sub_criteria` (`id`) ON DELETE CASCADE;
 
 --
