@@ -46,10 +46,10 @@
     WHEN c.type = 'cost' THEN ROUND(pembagi_table.pembagi / sc.jumlah_bobot, 4)
   END AS nilai_normalisasi
 
-FROM konsumen_terbaik_saw.alternatif AS a
-JOIN konsumen_terbaik_saw.pelanggan AS p ON a.id_pelanggan = p.id
-JOIN konsumen_terbaik_saw.sub_criteria AS sc ON a.id_sub_kreteria = sc.id
-JOIN konsumen_terbaik_saw.criteria AS c ON sc.id_kreteria = c.id
+FROM saw_pelanggan_terbaik_diy.alternatif AS a
+JOIN saw_pelanggan_terbaik_diy.pelanggan AS p ON a.id_pelanggan = p.id
+JOIN saw_pelanggan_terbaik_diy.sub_criteria AS sc ON a.id_sub_kreteria = sc.id
+JOIN saw_pelanggan_terbaik_diy.criteria AS c ON sc.id_kreteria = c.id
 
 -- Join ke pembagi
 JOIN (
@@ -59,9 +59,9 @@ JOIN (
       WHEN c.type = 'benefit' THEN MAX(sc.jumlah_bobot)
       WHEN c.type = 'cost' THEN MIN(sc.jumlah_bobot)
     END AS pembagi
-  FROM konsumen_terbaik_saw.alternatif AS a
-  JOIN konsumen_terbaik_saw.sub_criteria AS sc ON a.id_sub_kreteria = sc.id
-  JOIN konsumen_terbaik_saw.criteria AS c ON sc.id_kreteria = c.id
+  FROM saw_pelanggan_terbaik_diy.alternatif AS a
+  JOIN saw_pelanggan_terbaik_diy.sub_criteria AS sc ON a.id_sub_kreteria = sc.id
+  JOIN saw_pelanggan_terbaik_diy.criteria AS c ON sc.id_kreteria = c.id
   GROUP BY c.id, c.type
 ) AS pembagi_table ON pembagi_table.id_kriteria = c.id
 
@@ -100,7 +100,7 @@ ORDER BY p.nama, c.id;]]>
 	<parameter name="PATH" class="java.lang.String"/>
 	<parameter name="Parameter1" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[select * from  konsumen_terbaik_saw.users  limit 1]]>
+		<![CDATA[select * from  saw_pelanggan_terbaik_diy.users  limit 1]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<property name="com.jaspersoft.studio.field.name" value="id"/>

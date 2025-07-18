@@ -71,7 +71,7 @@ JOIN (
 
 -- Subquery untuk total bobot
 JOIN (
-    SELECT SUM(bobot) AS total FROM konsumen_terbaik_saw.criteria
+    SELECT SUM(bobot) AS total FROM saw_pelanggan_terbaik_diy.criteria
 ) AS total_weight
 
 GROUP BY p.nama
