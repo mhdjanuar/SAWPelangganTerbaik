@@ -233,7 +233,7 @@ public class PerhitunganSAW extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-            String templateName = "ReportNormalisasiBiznet.jrxml";
+            String templateName = "ReportNormalisasiKonsumenDIY.jrxml";
             InputStream reportStream = ReportView.class.getResourceAsStream("/resources/reports/" + templateName);
             JasperDesign jd = JRXmlLoader.load(reportStream);
 
@@ -254,7 +254,7 @@ public class PerhitunganSAW extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try {
-            String templateName = "ReportRangkingBiznet.jrxml";
+            String templateName = "ReportRangkingKonsumenDIY.jrxml";
             InputStream reportStream = ReportView.class.getResourceAsStream("/resources/reports/" + templateName);
             JasperDesign jd = JRXmlLoader.load(reportStream);
 

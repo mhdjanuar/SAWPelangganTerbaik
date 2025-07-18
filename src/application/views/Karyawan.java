@@ -348,7 +348,7 @@ import net.sf.jasperreports.view.JasperViewer;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try {
-            String templateName = "LaporanKaryawanBiznet.jrxml";
+            String templateName = "LaporanKonsumenDIY.jrxml";
             InputStream reportStream = ReportView.class.getResourceAsStream("/resources/reports/" + templateName);
             JasperDesign jd = JRXmlLoader.load(reportStream);
 
