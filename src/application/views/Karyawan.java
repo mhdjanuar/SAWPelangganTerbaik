@@ -357,7 +357,7 @@ import net.sf.jasperreports.view.JasperViewer;
             JasperReport jr = JasperCompileManager.compileReport(jd);
 
             HashMap parameter = new HashMap();
-            parameter.put("PATH","src/resources/images/");
+            parameter.put("PATH","resources/images/");
             
             JasperPrint jp = JasperFillManager.fillReport(jr,parameter, dbConnection);
             JasperViewer.viewReport(jp, false);

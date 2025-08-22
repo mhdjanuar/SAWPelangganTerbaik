@@ -131,9 +131,9 @@ ORDER BY total_nilai DESC;]]>
 	<pageHeader>
 		<band height="80" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="100" forecolor="#FFFCFC" backcolor="#A88C3B" uuid="b93f3334-87c0-416a-9351-63cd9df102f9"/>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="100" forecolor="#FFFCFC" backcolor="#A88C3B" uuid="342e97e8-1c75-459e-af78-36180d6d006e"/>
 				<staticText>
-					<reportElement x="110" y="10" width="350" height="30" forecolor="#FCFAFA" uuid="dd0c505c-9a54-4dd2-8008-3be119ebc96a"/>
+					<reportElement x="110" y="10" width="350" height="30" forecolor="#FCFAFA" uuid="f99744a1-56cd-4f60-9389-a73b3072abb2"/>
 					<textElement textAlignment="Center">
 						<font fontName="Times New Roman" size="20" isBold="true"/>
 						<paragraph lineSpacingSize="1.0"/>
@@ -141,20 +141,24 @@ ORDER BY total_nilai DESC;]]>
 					<text><![CDATA[MR.DIY]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="152" y="40" width="279" height="20" forecolor="#FFFAFA" uuid="f6b14010-3ae3-4441-a356-0619c26abae7"/>
+					<reportElement x="130" y="40" width="310" height="20" forecolor="#FFFAFA" uuid="8f4c8fe0-8216-4a97-9060-9c59ce5ab0fa"/>
 					<textElement>
 						<font fontName="Times New Roman"/>
 					</textElement>
-					<text><![CDATA[Jl. Raya Condet No.11, RT.3/RW.4, Batu Ampar, Kec. Kramat jati]]></text>
+					<text><![CDATA[Buaran Plaza Klender Lantai Basement Unit No. B1, B2, B3, B5, B6 dan B8]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="160" y="60" width="243" height="20" forecolor="#FCFAFA" uuid="79665259-278b-4ca9-9d91-a3b1be7862f3"/>
-					<text><![CDATA[Jakata Timur, Daerah Khusus Ibukota Jakarta 13520]]></text>
+					<reportElement x="130" y="60" width="320" height="20" forecolor="#FCFAFA" uuid="d328ae76-e696-4871-931b-5648e5e00920"/>
+					<text><![CDATA[Jl. Radin Inten II, No.1, Klender, Kec. Duren Sawit, Kota Jakarta Timur]]></text>
 				</staticText>
 				<image>
-					<reportElement x="40" y="25" width="50" height="50" uuid="23d5bb3f-e081-4190-9f1d-1a95495589ee"/>
-                                        <imageExpression><![CDATA[$P{PATH}+"MR_diy_logo-200.png"]]></imageExpression>
+					<reportElement x="40" y="25" width="50" height="50" uuid="3de58414-6ae4-40eb-89ad-9869ff48c0fc"/>
+					<imageExpression><![CDATA[$P{PATH}+"MR_diy_logo-200.png"]]></imageExpression>
 				</image>
+				<staticText>
+					<reportElement x="190" y="80" width="180" height="20" forecolor="#FCFAFA" uuid="e1599d3e-e14c-42cc-be3f-64e8ea98f853"/>
+					<text><![CDATA[Daerah Khusus Ibukota Jakarta 13470]]></text>
+				</staticText>
 			</frame>
 		</band>
 	</pageHeader>
@@ -165,7 +169,7 @@ ORDER BY total_nilai DESC;]]>
 				<textElement textAlignment="Center">
 					<font size="20" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Laporan Rangking]]></text>
+				<text><![CDATA[Laporan Ranking]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -241,7 +245,7 @@ ORDER BY total_nilai DESC;]]>
 								<textElement textAlignment="Center">
 									<paragraph spacingBefore="10"/>
 								</textElement>
-								<text><![CDATA[Rangking]]></text>
+								<text><![CDATA[Ranking]]></text>
 							</staticText>
 						</jr:tableHeader>
 						<jr:detailCell style="Table_TD" height="30">
@@ -263,7 +267,7 @@ ORDER BY total_nilai DESC;]]>
 	<pageFooter>
 		<band height="154" splitType="Stretch">
 			<textField pattern="MMMMM dd, yyyy">
-				<reportElement x="-20" y="20" width="594" height="19" uuid="d093389b-7d63-4f53-bdf0-0c0e770f3685">
+				<reportElement x="-20" y="20" width="594" height="19" uuid="43a1e534-7a2d-4d96-9663-c30a8d11c123">
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -272,7 +276,7 @@ ORDER BY total_nilai DESC;]]>
 				<textFieldExpression><![CDATA["Jakarta, " + new java.text.SimpleDateFormat("EEEE, dd MMMM yyyy", new java.util.Locale("id", "ID")).format(new java.util.Date())]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="-18" y="50" width="588" height="19" uuid="eb053141-2c5a-4e41-b523-b11ceb30ca0c">
+				<reportElement x="-18" y="50" width="588" height="19" uuid="efe294c6-2e7c-4eeb-b687-f34c1ef88b00">
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
@@ -282,14 +286,14 @@ ORDER BY total_nilai DESC;]]>
 				<text><![CDATA[HRD]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="-17" y="130" width="577" height="24" uuid="727c6684-29ff-4c16-92e7-de6f3e2c2382">
+				<reportElement x="-17" y="130" width="557" height="24" uuid="7d9e364a-26fa-413d-9bab-f3a56f64e0fd">
 					<property name="com.jaspersoft.studio.unit.spacingBefore" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
 				</reportElement>
 				<textElement textAlignment="Right">
 					<paragraph rightIndent="10"/>
 				</textElement>
-				<text><![CDATA[Danu Gunawan]]></text>
+				<text><![CDATA[Timu]]></text>
 			</staticText>
 		</band>
 	</pageFooter>

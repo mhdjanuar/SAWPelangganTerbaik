@@ -29,7 +29,7 @@ import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
- * @author mhdja
+ * @author timu
  */
 public class PerhitunganSAW extends javax.swing.JPanel {
     public final AlternatifDao alternatifDao;
@@ -242,7 +242,7 @@ public class PerhitunganSAW extends javax.swing.JPanel {
             JasperReport jr = JasperCompileManager.compileReport(jd);
 
             HashMap parameter = new HashMap();
-            parameter.put("PATH","src/resources/images/");
+            parameter.put("PATH","resources/images/");
             
             JasperPrint jp = JasperFillManager.fillReport(jr,parameter, dbConnection);
             JasperViewer.viewReport(jp, false);
@@ -263,7 +263,7 @@ public class PerhitunganSAW extends javax.swing.JPanel {
             JasperReport jr = JasperCompileManager.compileReport(jd);
 
             HashMap parameter = new HashMap();
-            parameter.put("PATH","src/resources/images/");
+            parameter.put("PATH","resources/images/");
             
             JasperPrint jp = JasperFillManager.fillReport(jr,parameter, dbConnection);
             JasperViewer.viewReport(jp, false);

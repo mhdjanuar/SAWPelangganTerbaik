@@ -97,20 +97,24 @@
 					<text><![CDATA[MR.DIY]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="152" y="40" width="279" height="20" forecolor="#FFFAFA" uuid="8f4c8fe0-8216-4a97-9060-9c59ce5ab0fa"/>
+					<reportElement x="130" y="40" width="310" height="20" forecolor="#FFFAFA" uuid="8f4c8fe0-8216-4a97-9060-9c59ce5ab0fa"/>
 					<textElement>
 						<font fontName="Times New Roman"/>
 					</textElement>
-					<text><![CDATA[Jl. Raya Condet No.11, RT.3/RW.4, Batu Ampar, Kec. Kramat jati]]></text>
+					<text><![CDATA[Buaran Plaza Klender Lantai Basement Unit No. B1, B2, B3, B5, B6 dan B8]]></text>
 				</staticText>
 				<staticText>
-					<reportElement x="160" y="60" width="243" height="20" forecolor="#FCFAFA" uuid="d328ae76-e696-4871-931b-5648e5e00920"/>
-					<text><![CDATA[Jakata Timur, Daerah Khusus Ibukota Jakarta 13520]]></text>
+					<reportElement x="130" y="60" width="320" height="20" forecolor="#FCFAFA" uuid="d328ae76-e696-4871-931b-5648e5e00920"/>
+					<text><![CDATA[Jl. Radin Inten II, No.1, Klender, Kec. Duren Sawit, Kota Jakarta Timur]]></text>
 				</staticText>
 				<image>
-					<reportElement x="40" y="25" width="50" height="50" uuid="23d5bb3f-e081-4190-9f1d-1a95495589ee"/>
-                                        <imageExpression><![CDATA[$P{PATH}+"MR_diy_logo-200.png"]]></imageExpression>
+					<reportElement x="40" y="25" width="50" height="50" uuid="3de58414-6ae4-40eb-89ad-9869ff48c0fc"/>
+					<imageExpression><![CDATA[$P{PATH}+"MR_diy_logo-200.png"]]></imageExpression>
 				</image>
+				<staticText>
+					<reportElement x="190" y="80" width="180" height="20" forecolor="#FCFAFA" uuid="e1599d3e-e14c-42cc-be3f-64e8ea98f853"/>
+					<text><![CDATA[Daerah Khusus Ibukota Jakarta 13470]]></text>
+				</staticText>
 			</frame>
 		</band>
 	</pageHeader>
